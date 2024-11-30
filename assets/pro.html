@@ -6,19 +6,20 @@
 <title>Proposal</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f9f9f9;
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(to right, #ffecd2, #fcb69f);
         margin: 0;
         padding: 0;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        color: #fff;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
     }
     h1 {
-        color: #333;
+        font-size: 3rem;
+        margin-bottom: 20px;
     }
     #options {
         margin-top: 30px;
@@ -33,14 +34,21 @@
     }
     #yesButton {
         background-color: #4caf50;
+        background: linear-gradient(to right, #56ab2f, #a8e063);
         color: #fff;
         margin-right: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
+    #yesButton:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
     #noButton {
-        background-color: #f44336;
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
         color: #fff;
-        margin-left: 20px;
-        position: absolute ;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        position: absolute;
     }
     #noButton:hover {
         animation: moveAround 0.5s infinite alternate;
@@ -54,57 +62,66 @@
     }
     /* Modal styles */
     .modal {
-        display: none;
+        display: none; /* Ensure the modal is hidden initially */
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
     }
     .modal-content {
-        background-color: #fefefe;
-        margin: 20% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        border-radius: 5px;
+        background: #fff;
+        color: #333;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        width: 70%;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        animation: popUp 0.5s ease-out;
     }
     .close {
         color: #aaa;
         float: right;
         font-size: 28px;
         font-weight: bold;
+        cursor: pointer;
     }
+
     .close:hover,
     .close:focus {
         color: black;
-        text-decoration: none;
-        cursor: pointer;
+    }
+
+    @keyframes popUp {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
     }
 </style>
 </head>
 <body>
 <h1>Do you love me?</h1>
 <div id="options">
-    <button id="yesButton" onclick="showMessage()">Yessssss</button>
-    <button id="noButton">Noooooo</button>
+    <button id="yesButton" onclick="showMessage()">Yes</button>
+    <button id="noButton">No</button>
 </div>
 <!-- Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <p>Mashallah! You made the right choice</p>
+    <p>Congratulations! You've made the right choice. Will you be mine?</p>
   </div>
 </div>
 
 <script>
     function showMessage() {
         var modal = document.getElementById("myModal");
-        modal.style.display = "block";
+        modal.style.display = "flex"; // Show the modal
     }
     
     document.getElementById("noButton").onmouseover = function() {
@@ -117,7 +134,7 @@
 
     function closeModal() {
         var modal = document.getElementById("myModal");
-        modal.style.display = "none";
+        modal.style.display = "none"; // Hide the modal
     }
 </script>
 </body>
