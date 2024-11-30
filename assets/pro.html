@@ -16,27 +16,34 @@
         height: 100vh;
         color: #fff;
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        text-align: center; /* Center text alignment */
     }
     h1 {
-        font-size: 3rem;
+        font-size: 2rem; /* Smaller default font for small screens */
         margin-bottom: 20px;
+        padding: 0 10px; /* Add padding to avoid cutting text */
     }
     #options {
-        margin-top: 30px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        gap: 10px; /* Add spacing between buttons */
     }
     button {
-        padding: 10px 20px;
-        font-size: 18px;
+        padding: 8px 16px;
+        font-size: 16px; /* Adjust button font size for small screens */
         border: none;
         cursor: pointer;
         border-radius: 5px;
         transition: transform 0.3s ease-in-out;
+        width: 100px; /* Set a fixed width for consistency */
+        max-width: 90%; /* Limit width for small screens */
     }
     #yesButton {
         background-color: #4caf50;
         background: linear-gradient(to right, #56ab2f, #a8e063);
         color: #fff;
-        margin-right: 20px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
     #yesButton:hover {
@@ -78,9 +85,10 @@
         background: #fff;
         color: #333;
         text-align: center;
-        padding: 30px;
+        padding: 20px; /* Smaller padding for modal */
         border-radius: 10px;
-        width: 70%;
+        width: 90%; /* Max width for mobile */
+        max-width: 400px; /* Limit width on larger screens */
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
         animation: popUp 0.5s ease-out;
     }
@@ -100,6 +108,20 @@
     @keyframes popUp {
         0% { transform: scale(0.5); opacity: 0; }
         100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .modal-content {
+            padding: 15px;
+        }
     }
 </style>
 </head>
